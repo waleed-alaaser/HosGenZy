@@ -1,0 +1,109 @@
+.container0 {
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 350px;
+    top: 70px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #FFE5E5;
+  }
+  .container1 {
+    width: 800px;
+    height: 600px;
+    display: none; 
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 42rem;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2A6877;
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .gridContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .label {
+    display: block;
+    color: #2A6877;
+    font-size: 1.1rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #2A6877;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .input:focus {
+    outline: none;
+    ring: 2px solid #2A6877;
+  }
+  
+  .walletAddressGroup {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .buttonContainer {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .cancelButton {
+    padding: 0.5rem 1.5rem;
+    background-color: #FFB5B5;
+    color: white;
+    border-radius: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  
+  .cancelButton:hover {
+    opacity: 0.9;
+  }
+  
+  .submitButton {
+    padding: 0.5rem 1.5rem;
+    background-color: #447C8A;
+    color: white;
+    border-radius: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  
+  .submitButton:hover {
+    opacity: 0.9;
+  }

@@ -1,0 +1,115 @@
+.form-container {
+    width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background: #ffe9e3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  .form-container .res_card{
+    width: 400px;
+    /* height: 80px; */
+    /* background-color: rgb(125, 121, 121); */
+    /* padding: 10px; */
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .form-container .res_card_full{
+    width: 100%;
+  }
+  .form-container .temp{
+    display: block;
+    width: 100%;
+  }
+  .form-container h2 {
+    /* text-align: center; */
+    padding-left: 50px;
+    /* color: #0e698b; */
+    font-size: 30px;
+  }
+  
+  .form-container label {
+    /* color: #0e698b; */
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    /* color: #0e698b; */
+    width: 230px;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-container button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #0e698b;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+  }
+  
+  .form-container button:hover {
+    background: #1880a5;
+  }
+  
+  /* start login */
+  .login-form {
+    max-width: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffe9e3;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+    margin-bottom: 260px;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* color: #0e698b; */
+  }
+  
+  .login-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  
+  .login-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #0e698b;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-form button:hover {
+    background-color: #1880a5;
+  }
+  
