@@ -1,0 +1,27 @@
+/*Satrt variables */
+
+/* 
+1: #ffe9e3
+2: #fe9a84
+3: #0e698b
+
+*/
+/*End variables */
+
+/* Start Global rules */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Work Sans" , sans-serif;
+    background-color: white;
+}
+/* End Global rules */
+ui li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
