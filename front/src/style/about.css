@@ -1,0 +1,329 @@
+/* 
+ffe9e3
+*/
+.about-header {
+  background: linear-gradient(to right, #0284c7, #075985);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    margin-top: 0px;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  /* Mission Vision Section */
+  .mission-vision {
+    padding: 2rem 0;
+    /* background-color: rgb(177, 22, 22); */
+  }
+  
+  .mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .mission-card, .vision-card {
+    padding: 2rem;
+    border-radius: 8px;
+    /* text-align: center; */
+    background-color: #f0f8ff;
+    border: 1px solid #d1e9ff;
+  }
+  
+  .mission-icon, .vision-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .mission-card h2, .vision-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .mission-card p, .vision-card p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Values Section */
+  .values {
+    padding: 1rem 0;
+    /* background-color: #f8fafc; */
+  }
+  .section-header{
+    text-align: center;
+  }
+  .section-header h1{
+    padding-top: 10px;
+    font-weight: bold;
+  }
+  .section-header p{
+    padding-bottom: 30px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .value-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    position: relative;
+  }
+  
+  .value-number {
+    width: 2rem;
+    height: 2rem;
+    background-color: #e0f2fe;
+    color: #0284c7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .value-card h3 {
+    margin-bottom: 0.75rem;
+    color: #0284c7;
+  }
+  
+  .value-card p {
+    color: #555;
+  }
+  
+  /* History Timeline */
+  /* .history {
+    padding: 4rem 0;
+    background-color: white;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #e5e7eb;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  
+  .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left items */
+  /* .timeline-item.left {
+    left: 0;
+  }
+  
+  /* Right items 
+  .timeline-item.right {
+    left: 50%;
+  }
+  
+  /* Arrows 
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border: 4px solid #0284c7;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .timeline-item.left::after {
+    right: -12px;
+  }
+  
+  .timeline-item.right::after {
+    left: -12px;
+  }
+  
+  .timeline-image {
+    height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .timeline-year {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #0284c7;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-text h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .timeline-text p {
+    color: #555;
+  } */
+   
+  /* Team Section */
+  .team {
+    padding: 4rem 0;
+    background-color: #f8fafc;
+  }
+  
+  .doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 2rem;
+  }
+  
+  .doctor-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .doctor-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .doctor-image {
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .doctor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .doctor-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .doctor-info h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .doctor-role {
+    color: #0284c7;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  
+  .doctor-credentials {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  
+  .doctor-speciality {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .team-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    color: #555;
+    padding-bottom: 30px;
+  }
+  .cta .container{
+    display: block;
+  }
+  .cta .container h1{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .cta .container p{
+    /* background-color: red; */
+    width: 500px;
+    text-align: center;
+    margin: 0px  auto;
+  }
+  .cta .container .btn{
+    background-color: white;
+    color: #0e698b;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 17px;
+    margin: 20px auto;
+  }
+  /* Responsive Timeline */
+  @media screen and (max-width: 768px) {
+    .timeline::after {
+      left: 31px;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+    
+    .timeline-item.right {
+      left: 0;
+    }
+    
+    .timeline-item.left::after, 
+    .timeline-item.right::after {
+      left: 18px;
+    }
+    
+    .mission-vision-grid {
+      grid-template-columns: 1fr;
+    }
+  }

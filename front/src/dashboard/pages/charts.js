@@ -4,6 +4,9 @@ import '../../App.css';
 import '../../style/normalize.css';
 import '../style/charts.css';
 import '../../style/all.min.css';
+import Sidebar from '../component/sidebar'; 
+import Dash_header from '../component/dash_header';
+
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,37 +35,10 @@ const Index = () => {
 
   return (
     <div className="containerDash">
-      <nav className="sidebar">
-          <h1 className="logo">HosGenZy</h1>
-          <div className="nav-links">
-          <Link to="/dash/" className="nav-item">📊 Dashboard</Link>
-          <Link to="/dash/pateint" className="nav-item">👥 Patient Appointment</Link>
-          <Link to="/dash/doctor" className="doctor nav-item">💊 Doctor</Link>
-          <Link to="/dash/pharmacy"  className="nav-item">💊 Pharmacy</Link>
-          <Link to="/dash/lap"  className="nav-item">💊 lap tech</Link>
-          <Link to="/dash/billing"   className="nav-item">⚙️ Billing</Link>
-          <Link to="/dash/department"   className="nav-item">⚙️ Department</Link>
-          <Link to="/dash/admin"   className="nav-item">⚙️ Admin Panel</Link>
-          <Link to="/dash/blockchain"   className="nav-item">⛓️ Blockchain Unit</Link>
-          <Link to="/dash/smart"   className="nav-item">🚗 Smart Garage</Link>
-          <Link to="/dash/fire"   className="nav-item">🔥 Fire Detection</Link>
-        </div>
-      </nav>
-    <div className="containerCharts">
-      <header className="header">
-        <div className="greeting">
-          <h1>👋 Hello, Dr.Nouran</h1>
-        </div>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search here"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-      </header>
-
+      
+      <Sidebar/>
+    <div className="main-content">
+      <Dash_header/>
       <div className="dashboard-grid">
         {stats.map((stat, index) => (
           <div key={index} className={`stat-card ${stat.color}`}>

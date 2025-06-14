@@ -1,8 +1,10 @@
 import './App.css';
 import './style/normalize.css';
+import './style/all.min.css';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/register';
 import Login from './pages/login';
+import LoginT from './pages/loginTest';
 import Logout from './pages/logout';
 import Dash from './dashboard/pages/dash';
 import Home from './pages/home';
@@ -10,6 +12,7 @@ import Services from './pages/services';
 import About from './pages/about';
 import Contact from './pages/contact';
 import Add from './pages/add';
+import Appointment from './pages/appointment';
 // start sash
 import Charts from './dashboard/pages/charts';
 import Pateint from './dashboard/pages/dash';
@@ -39,6 +42,8 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/dash" element={<Dash/>} />
           <Route path="/add" element={<Add/>} />
+          <Route path="/appointment" element={<Appointment/>} />
+          {/* start dash */}
           <Route path="/dash/" element={<Charts/>} />
           <Route path="/dash/pateint" element={<Pateint/>} />
           <Route path="/dash/doctor" element={<Doctor/>} />

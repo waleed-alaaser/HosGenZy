@@ -1,30 +1,22 @@
-
+import '../style/sidebar.css';
+import {Link} from 'react-router-dom';
 export default function Sidebar(){
-
-  function con( par){
-    if(par==="doc"){
-      alert(par);
-    }else if(par==="phar"){
-      alert(par);
-    }
-  }
     return(
-        <nav className="sidebar">
-          <h1 className="logo">HosGenZy</h1>
-        <ui className="nav-links">
-          <li className="nav-item">🏥 Hospital Management</li>
-          <li  className="nav-item">👥 Patient Appointment</li>
-          <li onClick={ () =>con("doc")} className="doctor nav-item">💊 Doctor</li>
-          <li  className="nav-item">📊 EHR System</li>
-          <li onClick={ () =>con("phar")} className="nav-item">💊 Pharmacy</li>
-          <li  className="nav-item">🚗 Smart Garage</li>
-          <li  className="nav-item">🔥 Fire Detection</li>
-          <li  className="nav-item">⛓️ Blockchain Unit</li>
-          <li  className="nav-item">⚙️ Admin Panel</li>
-          <li  className="nav-item">ℹ️ About Us</li>
-          <li  className="nav-item">📞 Contact</li>
-          <li  className="nav-item">🔒 Privacy</li>
-        </ui>
-      </nav>
+      <nav className="sidebarDash">
+      <h1 className="logo">HosGenZy</h1>
+    <div className="nav-links">
+      <Link to="/dash/" className="nav-item">📊 Dashboard</Link>
+      <Link to="/dash/pateint" className="nav-item">👥 Patient Appointment</Link>
+      <Link to="/dash/doctor" className="doctor nav-item">💊 Doctor</Link>
+      <Link to="/dash/pharmacy"  className="nav-item">💊 Pharmacy</Link>
+      <Link to="/dash/lap"  className="nav-item">💊 lap tech</Link>
+      <Link to="/dash/billing"   className="nav-item">⚙️ Billing</Link>
+      <Link to="/dash/department"   className="nav-item">⚙️ Department</Link>
+      <Link to="/dash/admin"   className="nav-item">⚙️ Admin Panel</Link>
+      <Link to="/dash/blockchain"   className="nav-item">⛓️ Blockchain Unit</Link>
+      <Link to="/dash/smart"   className="nav-item">🚗 Smart Garage</Link>
+      <Link to="/dash/fire"   className="nav-item">🔥 Fire Detection</Link>
+    </div>
+  </nav>
     );
 }

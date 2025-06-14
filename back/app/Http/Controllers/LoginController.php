@@ -14,24 +14,12 @@ class LoginController extends Controller
         // Validate and handle form data
         // response("waleed");
         
-        $exists_in_doctors = DB::table('doctors')->where('email', $request->email)->exists();
-        $exists_in_patients = DB::table('patients')->where('email', $request->email)->exists();
-        $exists_in_admins = DB::table('admins')->where('email', $request->email)->exists();
-        $who = 'hacker';
-        $name = 'mohamed';
-        if($exists_in_doctors){
-            $who = 'doctor';
-            $name = DB::table('doctors')->where('email', $request->email)->value('name');
-        }else if($exists_in_patients){
-            $who='patient';
-            $name = DB::table('patients')->where('email', $request->email)->value('name');
-        }else if($exists_in_admins){
-            $who='admin';
-            $name = DB::table('admins')->where('email', $request->email)->value('name');
-        }
+        // create token
+       // $token = $user->createToken('auth_token')->plainTextToken;
         return response()->json(data: [
-            'name'=>$name,
-            'role' => $who
+          //  'access_token' => $token,
+            'name'=>"eeddd"
+            
         ]);
     }
 }

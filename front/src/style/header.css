@@ -1,0 +1,120 @@
+.container{
+    /* background-color: white; */
+    width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* text-shadow: #eee; */
+}
+.header-header{
+    height: 90px;
+    /* background-color: red; */
+}
+.header-header .container{
+    background-color: white;
+    box-shadow: 0px 0px 0px 2px #e7eaf6;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+}
+.header-header .container .logo{
+    width: 10%;
+    height: 80px;
+}
+/* start links */
+.header-header .container .links{
+    /* background-color: #0e698b; */
+    width: 50%;
+    height: 100%;
+}
+.header-header .container .links ui{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    
+} 
+.header-header .container .links ui li{
+    width: 15%;
+    height: 100%;
+    margin: 0px 10px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-header .container .links ui li a{  /* a = Link*/
+    text-decoration: none;
+    color: #0076a1;
+}
+/* end links */
+/* strat search */
+.header-header .container .search{
+    width: 20%;
+    display: flex;
+}
+.header-header .container .search .search_in{
+    border-radius: 20px;
+    /* opacity: 0.7; */
+    border-color: #0e698b;
+}
+.header-header .container .search .search_icon i{
+    color: #0e698b;
+    /* font-size: 20px; */
+    margin-top: 3px;
+    margin-left: 20px;
+}
+/* end search */
+/* start notifications  */
+.header-header .container .notifications{
+    /* background-color:#c3c8ce ; */
+    width: 5%;
+    
+}
+.header-header .container .notifications i{
+    color: #0e698b;
+    font-size: 25px;
+    float: right;
+}
+/* end notifications  */
+
+/* start status  */
+.header-header .container .status{
+    background-color:white ;
+    width: 15%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.header-header .container .status .login{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+.header-header .container .status .line{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    color: black;
+}
+.header-header .container .status .register{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: white;
+    padding-right: 3px;
+}
+/* end status  */
+/* END HEADER */

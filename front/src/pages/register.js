@@ -4,6 +4,7 @@ import '../style/login_register.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -24,26 +25,28 @@ const RegistrationForm = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
         try {
-          if(formData.role === 'patient'){
-            const response = await axios.post('http://localhost:8000/api/patient', formData);
-            console.log('Success:', response.data);
-            alert("success");
+          const response = await axios.post('http://localhost:8000/api/register', formData);
+          console.log('Success:', response.data);
+          // alert("success");
+          if(response.data.role==='email_exist'){
+            alert("email olready exist");
           }else{
-            const response = await axios.post('http://localhost:8000/api/doctor', formData);
-            console.log('Success:', response.data);
-            alert("success");
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data));
+            if(formData.role === 'patient'){
+              navigate('/');  
+            }else{
+              navigate('/dash/doctor'); 
+            }
           }
           
-            //console.log('Success:', response.data);
-            // Optionally, update UI based on success
         } catch (error) {
-            //console.error('Error:', error.response ? error.response.data : error.message);
-            // Optionally, display error messages
             console.error('rror:', error);
             alert('eror');
         }

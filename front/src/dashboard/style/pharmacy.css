@@ -1,0 +1,340 @@
+/* Pharmacy Dashboard Styles */
+
+.containerDash {
+    background-color: #f5f7fa;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header Styles */
+  .dashboard_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard_header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .quick-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Navigation Tabs */
+  .dashboard-nav {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .nav-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-tab:hover {
+    color: #9b87f5;
+  }
+  
+  .nav-tab.active {
+    color: #9b87f5;
+    border-bottom: 2px solid #9b87f5;
+    font-weight: bold;
+  }
+  
+  /* Main Content Area */
+  .dashboard-main {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+  
+  .tab-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+  }
+  
+  /* Dashboard Overview Layout */
+  .dashboard-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .dashboard-overview > div {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+  
+  .sales-overview {
+    grid-column: 1 / -1;
+  }
+  
+  /* Status Cards */
+  .status-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .status-card {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 15px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .status-card.warning {
+    background-color: #fff3e0;
+  }
+  
+  .status-value {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .status-label {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .data-table th {
+    background-color: #f5f5f5;
+    text-align: left;
+    padding: 10px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .data-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Status Badges */
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .status-badge.ready {
+    background-color: #e5f7ed;
+    color: #0d904b;
+  }
+  
+  .status-badge.processing {
+    background-color: #e5ecf9;
+    color: #0a58ca;
+  }
+  
+  .status-badge.pending {
+    background-color: #fff8e5;
+    color: #b16a00;
+  }
+  
+  /* Stock Levels */
+  .stock-level {
+    font-weight: 600;
+  }
+  
+  .stock-level.low {
+    color: #dc3545;
+  }
+  
+  /* Action Bar */
+  .action-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    background-color: #9b87f5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #7e69ab;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid #9b87f5;
+    color: #9b87f5;
+  }
+  
+  .btn-outline:hover {
+    background-color: #f5f0ff;
+  }
+  
+  .search-input, .filter-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 200px;
+  }
+  
+  /* Charts */
+  .chart-placeholder {
+    height: 300px;
+    background-color: #fafafa;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 250px;
+  }
+  
+  .bar {
+    background: linear-gradient(to top, #9b87f5, #d6bcfa);
+    width: 40px;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .bar span {
+    position: absolute;
+    bottom: -25px;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* Top Selling List */
+  .top-list {
+    padding-left: 20px;
+  }
+  
+  .top-list li {
+    margin-bottom: 5px;
+  }
+  
+  /* Loading State */
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #9b87f5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .no-data {
+    color: #666;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .dashboard-overview {
+      grid-template-columns: 1fr;
+    }
+    
+    .status-cards {
+      flex-direction: column;
+    }
+    
+    .action-bar {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .search-input, .filter-select {
+      width: 100%;
+    }
+    
+    .nav-tab {
+      padding: 10px;
+      font-size: 14px;
+    }
+    
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .quick-actions {
+      width: 100%;
+    }
+    
+    .btn {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .data-table {
+      font-size: 14px;
+    }
+  }

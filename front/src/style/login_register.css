@@ -2,14 +2,14 @@
     width: 800px;
     margin: 20px auto;
     border-radius: 10px;
-    background: #ffe9e3;
+    background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 60px;
   }
   .form-container .res_card{
-    width: 400px;
+    width: 380px;
     /* height: 80px; */
     /* background-color: rgb(125, 121, 121); */
     /* padding: 10px; */
@@ -72,7 +72,7 @@
     max-width: 350px;
     margin: 40px auto;
     padding: 20px;
-    background: #ffe9e3;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
     margin-bottom: 260px;

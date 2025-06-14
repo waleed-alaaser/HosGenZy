@@ -1,14 +1,11 @@
-import '../App.css';
-import '../style/normalize.css';
-import '../style/home_style.css';
-import '../style/all.min.css';
+import '../style/header.css';
 import {Link }from "react-router-dom";
 import Logo from "../images/WhatsApp Image 2025-04-02 at 12.07.52 PM.jpeg";
 
 export default function Header(){
   const user = JSON.parse(localStorage.getItem('user'));
     return(
-        <div className='header'>
+        <div className='header-header'>
         <div className='container'>
           <img className='logo' src={Logo} alt='logo' />
           <div className='links'>

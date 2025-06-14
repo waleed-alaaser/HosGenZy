@@ -19,8 +19,9 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/login', loginData);
-      //console.log('Success:', response.data);
+      console.log('Success:', response.data);
       //alert("success");
+      localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data));
         if(response.data.role === 'patient'){
           navigate('/');

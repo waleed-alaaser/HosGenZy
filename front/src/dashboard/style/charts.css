@@ -1,51 +1,17 @@
 
-  .containerCharts {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 20px; 
-    background-color: white;
-    margin-left: 10px; 
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .greeting {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .greeting h1 {
-    font-size: 1.5rem;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    background: #000000;
-    border-radius: 20px;
-    padding: 10px 20px;
-    width: 300px;
-  }
-  
-  .search-bar input {
-    background: transparent;
-    border: none;
-    color: white;
-    width: 100%;
-    outline: none;
-  }
-  
-  .dashboard-grid {
+.containerDash {
+  display: flex;
+  height: 100vh;
+  width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+  /* start dashboard grid */
+ .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 10px;
   }
   
   .stat-card {
@@ -59,19 +25,20 @@
   .stat-card.gold { background: linear-gradient(45deg, #daa520, #ffd700); }
   .stat-card.green { background: linear-gradient(45deg, #228b22, #32cd32); }
   
-  .stat-card h3 {
+  .containerCharts .stat-card h3 {
     font-size: 2.5rem;
     margin: 10px 0;
   }
   
-  .stat-change {
+  .containerCharts .stat-change {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 0.9rem;
     margin-top: 10px;
   }
-  
+  /* END dashboard grid */
+  /* START charts-container */
   .charts-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -79,7 +46,7 @@
   }
   
   .chart-card {
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgb(144, 82, 82);
     border-radius: 15px;
     padding: 20px;
   }
