@@ -1,5 +1,8 @@
 import {Link }from "react-router-dom";
 import React, { useState } from 'react';
+import { useEffect} from 'react';
+import axios from 'axios';
+
 import '../../App.css';
 import '../../style/normalize.css';
 import '../style/doctor.css';
@@ -7,15 +10,27 @@ import '../../style/all.min.css';
 import Sidebar from "../component/sidebar";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('appointments');
+  // const [activeTab, setActiveTab] = useState('appointments');
 
   // Sample data - in a real app, this would come from an API
-  const appointments = [
-    { id: 1, patient: "John Doe", date: "2025-05-15", time: "09:00 AM", reason: "Annual Checkup" },
-    { id: 2, patient: "Mary Smith", date: "2025-05-15", time: "10:30 AM", reason: "Follow-up" },
-    { id: 3, patient: "Robert Johnson", date: "2025-05-16", time: "02:00 PM", reason: "Consultation" },
-    { id: 4, patient: "Emily Brown", date: "2025-05-17", time: "11:15 AM", reason: "Lab Results Review" }
-  ];
+  // const appointments = [
+  //   { id: 1, patient: "John Doe", date: "2025-05-15", time: "09:00 AM", reason: "Annual Checkup" },
+  //   { id: 2, patient: "Mary Smith", date: "2025-05-15", time: "10:30 AM", reason: "Follow-up" },
+  //   { id: 3, patient: "Robert Johnson", date: "2025-05-16", time: "02:00 PM", reason: "Consultation" },
+  //   { id: 4, patient: "Emily Brown", date: "2025-05-17", time: "11:15 AM", reason: "Lab Results Review" }
+  // ];
+  const [appointments, setAppointments] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/getAppointmentDoctor')
+      .then(response => {
+        console.log(response.data);
+        setAppointments(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching departments:', error);
+      });
+    }, []);
 
   const patients = [
     { id: 101, name: "John Doe", age: 45, lastVisit: "2025-04-10", condition: "Hypertension" },
@@ -31,6 +46,77 @@ const Index = () => {
     totalPatients: 4,
     cancelledAppointments: 0
   };
+  const handleCancel = async (appointmentId) => {
+    try {
+      const res = await axios.post(`http://localhost:8000/api/appointment/${appointmentId}/cancel`);
+      alert(res.data.message);
+      // Optionally, refresh data or update UI
+    } catch (err) {
+      console.error('Cancel failed:', err);
+      alert('Failed to cancel appointment.');
+    }
+  };
+  // prescription button function
+  const [prescription, setPrescription] = useState('');
+  const [selectedPatientId, setSelectedPatientId] = useState(null);
+  const [appointId, setAppointId] = useState(null);
+const [selectedDoctorId, setSelectedDoctorId] = useState(null);
+const [showModal, setShowModal] = useState(false);
+const [showModalLap, setShowModalLap] = useState(false);
+
+const handlePharmacyClick = (patientId) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  setSelectedPatientId(patientId);
+  setSelectedDoctorId(user.id);
+  setShowModal(true); // Open modal
+};
+const handleSubmit = async () => {
+  try {
+    await axios.post('http://localhost:8000/api/prescriptions', {
+      patient_id: selectedPatientId,
+      doctor_id: selectedDoctorId,
+      text: prescription
+    });
+    alert('Prescription saved!');
+    setShowModal(false);
+    setPrescription('');
+  } catch (error) {
+    console.error(error);
+    alert('Failed to save prescription');
+  }
+};
+// handle lap rech function
+const handleLapClick = (patientId) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  setSelectedPatientId(patientId);
+  setSelectedDoctorId(user.id);
+  setShowModalLap(true); // Open modal
+};
+const handleSubmitLap = async () => {
+  try {
+    await axios.post('http://localhost:8000/api/laps', {
+      patient_id: selectedPatientId,
+      doctor_id: selectedDoctorId,
+      text: prescription
+    });
+    alert('laps saved!');
+    setShowModalLap(false);
+    setPrescription('');
+  } catch (error) {
+    console.error(error);
+    alert('Failed to save laps');
+  }
+};
+// handle complete button
+const completeAppointment = async (patientId) => {
+  try {
+    const res = await axios.post(`http://localhost:8000/api/appointments/${patientId}/completeDoctor`);
+    alert(res.data.message);
+  } catch (err) {
+    console.error(err);
+    alert('Failed to complete appointment.');
+  }
+};  
   return (
     <div className="containerDash">
       <Sidebar/> 
@@ -66,22 +152,9 @@ const Index = () => {
         </div>
         
         <div className="dashboard-tabs">
-          <button 
-            className={`tab-button ${activeTab === 'appointments' ? 'active' : ''}`}
-            onClick={() => setActiveTab('appointments')}
-          >
-            Appointments
-          </button>
-          <button 
-            className={`tab-button ${activeTab === 'patients' ? 'active' : ''}`}
-            onClick={() => setActiveTab('patients')}
-          >
-            Patients
-          </button>
+            <h1>Appointments</h1>
         </div>
-        
         <div className="dashboard-content">
-          {activeTab === 'appointments' ? (
             <div className="appointments-section">
               <h2>Upcoming Appointments</h2>
               <table className="data-table">
@@ -97,52 +170,65 @@ const Index = () => {
                 <tbody>
                   {appointments.map(appointment => (
                     <tr key={appointment.id}>
-                      <td>{appointment.patient}</td>
-                      <td>{appointment.date}</td>
-                      <td>{appointment.time}</td>
-                      <td>{appointment.reason}</td>
+                      <td>{appointment.patient.name}</td>
+                      <td>{appointment.booking_date.substring(0 , 10)}</td>
+                      <td>{appointment.date_time}</td>
+                      <td>{appointment.discription}</td>
                       <td>
-                        <button className="btn btn-outline">View</button>
-                        <button className="btn btn-outline">Cancel</button>
+                      <button className="btn btn-success" onClick={() => completeAppointment(appointment.patient.id)}>
+                        Complete
+                      </button>
+                        <button className="btn btn-outline"
+                        onClick={() => handleLapClick(appointment.patient_id)}>lap tech</button>
+                        {showModalLap && (
+                          <div className="modal">
+                            <div className="modal-content">
+                              <h3>Write Prescription</h3>
+                              <textarea
+                                rows="4"
+                                value={prescription}
+                                onChange={(e) => setPrescription(e.target.value)}
+                                placeholder="Type lap tests here..."
+                              />
+                              <br />
+                              <button onClick={handleSubmitLap}>Send</button>
+                              <button onClick={() => setShowModalLap(false)}>Cancel</button>
+                            </div>
+                          </div>
+                        )}
+                        <button
+                          className="btn btn-outline"
+                          onClick={() => handlePharmacyClick(appointment.patient_id)}
+                        >
+                          Pharmacy
+                        </button>
+                        {showModal && (
+                          <div className="modal">
+                            <div className="modal-content">
+                              <h3>Write Prescription</h3>
+                              <textarea
+                                rows="4"
+                                value={prescription}
+                                onChange={(e) => setPrescription(e.target.value)}
+                                placeholder="Type prescription here..."
+                              />
+                              <br />
+                              <button onClick={handleSubmit}>Send</button>
+                              <button onClick={() => setShowModal(false)}>Cancel</button>
+                            </div>
+                          </div>
+                        )}
+                        <button className="btn btn-outline" onClick={() => handleCancel(appointment.id)}>Cancel {appointment.id}</button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          ) : (
-            <div className="patients-section">
-              <h2>Patient List</h2>
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Last Visit</th>
-                    <th>Condition</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {patients.map(patient => (
-                    <tr key={patient.id}>
-                      <td>{patient.name}</td>
-                      <td>{patient.age}</td>
-                      <td>{patient.lastVisit}</td>
-                      <td>{patient.condition}</td>
-                      <td>
-                        <button className="btn btn-outline">View Records</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
             </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+            </div>
+            </div>
+  )
 };
 
 export default Index

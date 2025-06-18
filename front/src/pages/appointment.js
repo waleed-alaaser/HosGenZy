@@ -153,7 +153,7 @@ const Appointment = () => {
                   required
                 >
                   <option value="General Medicine">General Medicine</option>
-                  <option value="Cardiology">Cardiology</option>
+                  <option value="Diabetes">Diabetes</option>
                   <option value="Neurology">Neurology</option>
                   <option value="Orthopedics">Orthopedics</option>
                   <option value="Pediatrics">Pediatrics</option>

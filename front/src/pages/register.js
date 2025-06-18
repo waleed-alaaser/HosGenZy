@@ -14,6 +14,7 @@ const RegistrationForm = () => {
     email: '',
     address: '',
     gender: '',
+    department: '',
     role: '',
     heartRate: '',
     bloodPressure: '',
@@ -81,11 +82,11 @@ const RegistrationForm = () => {
       <label>Gender:</label>
       <select name="gender" value={formData.gender} onChange={handleChange} required>
         <option value="">--Select--</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
       </select>
       </div>
-      <div className='res_card res_card_full' >
+      <div className='res_card ' >
         <label>Role:</label>
         <select name="role" value={formData.role} onChange={handleChange} required>
           <option value="">--Select--</option>
@@ -93,24 +94,26 @@ const RegistrationForm = () => {
           <option value="patient">Patient</option>
         </select>
       </div>
-      {formData.role === 'patient' && (
+      {formData.role === 'doctor' && (
         <>
-          <div className='res_card' >
-          <label>Heart Rate (bpm):</label>
-          <input type="number" name="heartRate" value={formData.heartRate} onChange={handleChange} />
-          </div>
-          <div className='res_card' >
-          <label>Blood Pressure (systolic/diastolic):</label>
-          <input type="text" name="bloodPressure" placeholder="e.g., 120/80" value={formData.bloodPressure} onChange={handleChange} />
-          </div>
-          <div className='res_card' >
-          <label>Temperature (°C):</label>
-          <input type="number" step="0.1" name="temperature" value={formData.temperature} onChange={handleChange} />
-          </div>
-          <div className='res_card' >
-          <label>Oxygen Saturation (%):</label>
-          <input type="number" step="0.1" name="oxygenSaturation" value={formData.oxygenSaturation} onChange={handleChange} />
-          </div>
+         <div className='res_card' >
+      <label htmlFor="department">Department*</label>
+                <select 
+                  id="department" 
+                  name="department" 
+                  value={formData.department} 
+                  onChange={handleChange} 
+                  required
+                >
+                  <option value="General Medicine">General Medicine</option>
+                  <option value="Diabetes">Diabetes</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Orthopedics">Orthopedics</option>
+                  <option value="Pediatrics">Pediatrics</option>
+                  <option value="Dermatology">Dermatology</option>
+                  <option value="Ophthalmology">Ophthalmology</option>
+                </select>
+                </div>
         </>
       )}
 

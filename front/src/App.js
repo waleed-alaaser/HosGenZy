@@ -7,6 +7,7 @@ import Login from './pages/login';
 import LoginT from './pages/loginTest';
 import Logout from './pages/logout';
 import Dash from './dashboard/pages/dash';
+import DashTest from './dashboard/pages/testBolck';
 import Home from './pages/home';
 import Services from './pages/services';
 import About from './pages/about';
@@ -15,8 +16,8 @@ import Add from './pages/add';
 import Appointment from './pages/appointment';
 // start sash
 import Charts from './dashboard/pages/charts';
-import Pateint from './dashboard/pages/dash';
 import Doctor from './dashboard/pages/doctors';
+// import Pateint from './dashboard/pages/dash';
 import Pharmacy from './dashboard/pages/pharmacy';
 import Department from './dashboard/pages/department';
 import Lap from './dashboard/pages/lap';
@@ -41,18 +42,20 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/dash" element={<Dash/>} />
+          {/* <Route path="/dash" element={<Dash/>} /> */}
+          
           <Route path="/add" element={<Add/>} />
           <Route path="/appointment" element={<Appointment/>} />
           {/* start dash */}
           <Route path="/dash/" element={<Charts/>} />
-          <Route path="/dash/pateint" element={<Pateint/>} />
+          <Route path="/dash/pateint" element={<Dash/>} />
           <Route path="/dash/doctor" element={<Doctor/>} />
           <Route path="/dash/pharmacy" element={<Pharmacy/>} />
           <Route path="/dash/lap" element={<Lap/>} />
           <Route path="/dash/billing" element={<Billing/>} />
           <Route path="/dash/department" element={<Department/>} />
           <Route path="/dash/admin" element={<Admin/>} />
-          <Route path="/dash/blockchain" element={<Blockchain/>} />
+          <Route path="/dash/blockchain" element={<DashTest/>} />
           <Route path="/dash/smart" element={<Smart/>} />
           <Route path="/dash/fire" element={<Fire/>} />
         </Routes>

@@ -39,11 +39,11 @@ const Index = () => {
             <tr>
               <th>id</th>
               <th>Name</th>
-              <th>Age</th>
+              <th>Date</th>
               <th>Department</th>
               <th>Status</th>
               <th>Email Address</th>
-              <th>Wallet Address</th>
+              {/* <th>Wallet Address</th> */}
             </tr>
           </thead>
           <tbody>
@@ -56,11 +56,26 @@ const Index = () => {
                     {patient.patient.name}
                   </div>
                 </td>
-                <td>{patient.date_time}</td>
+                <td>{patient.booking_date.substring(0 , 10)}</td>
                 <td>{patient.department}</td>
+                {/* <td>
+                  <span className={`status ${(patient.status==0)?'pending':'completed'}`}>
+                    {(patient.status==0)?'pending':'completed'}
+                  </span>
+                </td> */}
                 <td>
-                  <span className={`status ${patient.status}`}>
-                    {patient.status}
+                  <span className={`status ${
+                    patient.status == 0 ? 'pending' :
+                    patient.status == 1 ? 'completed' :
+                    patient.status == 2 ? 'cancelled' :
+                    'unknown'
+                  }`}>
+                    {
+                      patient.status == 0 ? 'Pending' :
+                      patient.status == 1 ? 'Completed' :
+                      patient.status == 2 ? 'Cancelled' :
+                      'Unknown'
+                    }
                   </span>
                 </td>
                 <td>{patient.patient.email}</td>

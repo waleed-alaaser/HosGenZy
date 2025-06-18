@@ -19,26 +19,34 @@ class AuthController extends Controller
         ];
         $exist_in_doctors = DB::table('doctors')->where('email', $request->email)->exists();
         $exist_in_patients = DB::table('patients')->where('email', $request->email)->exists();
+        $modyName = substr($request->name , 0, 8);
         if($exist_in_doctors || $exist_in_patients){
             return response()->json(data: [
                 'name' => $request->name,
                 'role' => 'email_exist'
             ]);
         }
+        $idd=null;
         if ($role === 'doctor') {
             Doctor::create([
-                'name' => $request->name,
+                'name' => $modyName,
                 'gender' => $request->gender,
                 'date_of_birth' => $request->dob,
-                'email' => $request->email
+                'email' => $request->email,
+                'department' => $request->department
             ]);
+            $idd = DB::table('doctors')->where('email', $request->email)->value('id');
+
         } elseif ($role === 'patient') {
             Patient::create([
-                'name' => $request->name,
+                'name' => $modyName,
                 'gender' => $request->gender,
                 'date_of_birth' => $request->dob,
-                'email' => $request->email
+                'email' => $request->email,
+                'department' => $request->department
             ]);
+            $idd = DB::table('patients')->where('email', $request->email)->value('id');
+
         } else {
             return response()->json(['error' => 'Invalid role'], 400);
         }
@@ -49,8 +57,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'role' => $role,
         ]);
-
-        return response()->json(['token' => $token, 'role' => $role, 'name' => $data['name']]);
+        return response()->json(['token' => $token, 'role' => $role, 'name' => $modyName, 'id'=>$idd]);
     }
 
     public function login(Request $request)
@@ -58,11 +65,13 @@ class AuthController extends Controller
         $email = $request->email;
         $name = '';
         $role = null;
-
+        $idd=null;
         foreach (['admins', 'doctors', 'patients'] as $table) {
             if (DB::table($table)->where('email', $email)->exists()) {
                 $name = DB::table($table)->where('email', $email)->value('name');
                 $role = rtrim($table, 's');
+                $idd = DB::table($table)->where('email', $email)->value('id');
+                
                 break;
             }
         }
@@ -79,7 +88,7 @@ class AuthController extends Controller
             'role' => $role,
         ]);
         // $te = var_dump(hash('sha256', $token));
-        return response()->json(['token' => $token,'role'=>$role ,'name' => $name]);
+        return response()->json(['token' => $token,'role'=>$role ,'name' => $name , 'id'=>$idd]);
     }
 
     public function logout(Request $request)
